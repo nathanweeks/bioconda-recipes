@@ -1,5 +1,5 @@
 {% set version = "1.8.6" %}
-{% set sha256 = "0930f60ef300dda533247a46e77bbec9f1f9508e5fc4a97728ed5fd40a7614ed" %}
+{% set sha256 = "d113efa48d29d825eb47abd4ee5124b9b51d7062714a83fc49104552547d5584" %}
 
 package:
   name: links
@@ -8,18 +8,18 @@ package:
 source:
   url: http://www.bcgsc.ca/platform/bioinfo/software/links/releases/{{ version }}/links_v{{ version | replace(".","-") }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    - links.patch
 
 build:
-  number: 0
+  number: 1
   skip: True # [osx]
 
 requirements:
   build:
     - perl
     - swig
-    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
+    - perl
   run:
     - perl
 test:
